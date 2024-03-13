@@ -26,7 +26,7 @@
         <div class="rounded-lg border-2 border-black1 bg-white py-8">
           <form action="" class="mx-auto w-1/2" v-if="isType === 1">
             <div class="flex flex-col items-center gap-5">
-              <img class="max-w-25 max-h-25" src="../assets/img/user_default.png" alt="" />
+              <img class="max-h-25 max-w-25" src="../assets/img/user_default.png" alt="" />
               <label for="">
                 <input class="hidden" type="file" name="" id="" />
                 <span class="bg-black px-6 py-1 text-white">上傳大頭貼</span>
@@ -101,5 +101,5 @@
 import BtnAside from '@/components/BtnAside.vue'
 import { ref } from 'vue'
 
-const isType = ref(1)
+const isType = ref<number>(1)
 </script>
