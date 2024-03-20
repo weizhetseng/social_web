@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-black1 bg-main shadow-shadow_gray absolute left-1/2 top-1/2 flex w-11/12 max-w-4xl -translate-x-1/2 -translate-y-1/2 flex-col-reverse items-center gap-12 border-2 border-solid px-12 py-16 md:flex-row"
+    class="m-auto my-20 flex w-11/12 max-w-4xl flex-col-reverse items-center gap-12 border-2 border-solid border-black1 bg-main px-12 py-16 shadow-shadow_gray md:flex-row"
   >
     <div class="md:w-1/2">
       <img src="@/assets/img/login.svg" alt="" />
@@ -8,7 +8,11 @@
     <div class="md:w-1/2">
       <h3 class="text-center text-6xl font-bold leading-normal">MetaWall</h3>
       <p class="mb-9 text-center text-2xl font-bold">從元宇宙展開全新社交圈</p>
-      <form @submit.prevent="" class="flex flex-col items-center" v-if="!isRegister">
+      <form
+        @submit.prevent="router.push('/home')"
+        class="flex flex-col items-center"
+        v-if="!isRegister"
+      >
         <div class="mb-4 w-full">
           <input
             type="email"
@@ -16,7 +20,7 @@
             id="email"
             autocomplete="username"
             placeholder="Email"
-            class="border-black1 mb-1 w-full border-2 border-solid px-6 py-4"
+            class="mb-1 w-full border-2 border-solid border-black1 px-6 py-4"
           />
           <span class="text-red1">請輸入帳號</span>
         </div>
@@ -27,13 +31,13 @@
             id="password"
             autocomplete="current-password"
             placeholder="Password"
-            class="border-black1 mb-1 w-full border-2 border-solid px-6 py-4"
+            class="mb-1 w-full border-2 border-solid border-black1 px-6 py-4"
           />
           <span class="text-red1">請輸入密碼</span>
         </div>
-        <p class="text-red1 mb-4">帳號或密碼錯誤，請重新輸入！</p>
+        <p class="mb-4 text-red1">帳號或密碼錯誤，請重新輸入！</p>
         <button
-          class="border-black1 bg-blue1 shadow-shadow_black mb-4 w-full rounded-lg border-2 border-solid p-4 font-bold text-white"
+          class="mb-4 w-full rounded-lg border-2 border-solid border-black1 bg-blue1 p-4 font-bold text-white shadow-shadow_black"
           type="submit"
         >
           <!-- bg-gray1 border-gray2 -->
@@ -51,7 +55,7 @@
             id="newName"
             autocomplete="username"
             placeholder="暱稱"
-            class="border-black1 mb-1 w-full border-2 border-solid px-6 py-4"
+            class="mb-1 w-full border-2 border-solid border-black1 px-6 py-4"
           />
           <span class="text-red1">暱稱至少兩個字元以上</span>
         </div>
@@ -62,7 +66,7 @@
             id="newEmail"
             autocomplete="email"
             placeholder="Email"
-            class="border-black1 mb-1 w-full border-2 border-solid px-6 py-4"
+            class="mb-1 w-full border-2 border-solid border-black1 px-6 py-4"
           />
           <span class="text-red1">帳號已被註冊，請替換新的Email!</span>
         </div>
@@ -73,12 +77,12 @@
             id="newPassword"
             autocomplete="new-password"
             placeholder="Password"
-            class="border-black1 mb-1 w-full border-2 border-solid px-6 py-4"
+            class="mb-1 w-full border-2 border-solid border-black1 px-6 py-4"
           />
           <span class="text-red1">密碼至少需要8碼以上，並中英混合</span>
         </div>
         <button
-          class="bg-gray1 border-gray2 mb-4 w-full rounded-lg border-2 border-solid p-4 font-bold text-white"
+          class="mb-4 w-full rounded-lg border-2 border-solid border-gray2 bg-gray1 p-4 font-bold text-white"
           type="submit"
         >
           註冊
@@ -93,5 +97,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 const isRegister = ref<boolean>(false)
+const router = useRouter()
 </script>

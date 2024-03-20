@@ -3,9 +3,10 @@
     <select
       name=""
       id=""
-      class="bg-angleD bg-5 bg-right-4 w-38 appearance-none border-2 border-black1 bg-no-repeat px-4 py-3"
+      class="w-38 appearance-none border-2 border-black1 bg-angleD bg-5 bg-right-4 bg-no-repeat px-4 py-3"
     >
-      <option value="">最新貼文</option>
+      <option value="">從新到舊</option>
+      <option value="">從舊到新</option>
     </select>
     <div class="flex flex-1 border-2 border-black1">
       <input type="text" placeholder="搜尋貼文" class="w-full px-4 py-3" />

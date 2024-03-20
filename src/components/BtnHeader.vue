@@ -17,7 +17,7 @@
           >
             <li>
               <RouterLink
-                to="/"
+                to="/myPost"
                 class="block whitespace-nowrap border-2 border-b-0 border-black1 p-2 text-center hover:bg-main"
                 >我的貼文牆</RouterLink
               >

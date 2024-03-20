@@ -19,21 +19,22 @@
           </div>
         </div>
         <ul class="flex flex-col gap-6" v-else>
-          <li v-for="list in postsList" :key="list._id">
+          <li>
             <div class="rounded-lg border-2 border-black1 bg-white px-7 py-6 shadow-shadow_black2">
               <div class="mb-4 flex items-center gap-2">
-                <div class="h-11 w-11 overflow-hidden rounded-full border-2 border-black1">
-                  <img class="h-full w-full object-cover" :src="list.user.photo" alt="" />
+                <div class="h-11 w-11 rounded-full border-2 border-black1">
+                  <img class="h-full w-full object-cover" src="../assets/img/user.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold hover:text-blue1 hover:underline">{{ list.user.name }}</h3>
+                  <h3 class="font-bold hover:text-blue1 hover:underline">User</h3>
                   <p class="text-xs text-gray3">2022/1/10 12:00</p>
                 </div>
               </div>
               <div class="mb-4">
-                <p>{{ list.content }}</p>
+                <p>外面看起來就超冷....</p>
+                <p>我決定回被窩繼續睡....</p>
                 <br />
-                <img class="w-full" :src="list.image" alt="" />
+                <img class="w-full" src="../assets/img/image.png" alt="" />
               </div>
               <div class="mb-5">
                 <button type="button" class="flex items-center gap-1">
@@ -71,38 +72,7 @@
 <script lang="ts" setup>
 import BtnAside from '@/components/BtnAside.vue'
 import BtnSearchBar from '@/components/BtnSearchBar.vue'
-import { onMounted, ref } from 'vue'
-import axios from 'axios'
+import { ref } from 'vue'
 
 const hasPost = ref(true)
-
-interface PostList {
-  _id: string
-  content: string
-  image: string
-  user: {
-    _id: string
-    name: string
-    photo: string
-  }
-  likes: number
-}
-
-const postsList = ref<PostList[]>([])
-
-const getListData = async () => {
-  await axios
-    .get('https://social-api-cqm3.onrender.com/posts/getPost')
-    .then((res) => {
-      console.log(res.data.data)
-      postsList.value = res.data.data
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-}
-
-onMounted(() => {
-  getListData()
-})
 </script>
